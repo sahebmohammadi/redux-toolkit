@@ -13,7 +13,7 @@ const TodoList = () => {
   return (
     <ul className="list-group">
       {todos.map((todo) => (
-        <TodoItem id={todo.id} title={todo.title} completed={todo.completed} />
+        <TodoItem key={todo.id} {...todo} />
       ))}
     </ul>
   );
