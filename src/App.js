@@ -11,7 +11,7 @@ function App() {
       {/* <CounterComp /> */}
       <AddTodoForm />
       <TodoList />
-      <TotalCompleteItems />
+      {/* <TotalCompleteItems /> */}
     </div>
   );
 }
