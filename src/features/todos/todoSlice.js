@@ -13,6 +13,21 @@ export const getAsyncTodos = createAsyncThunk(
   }
 );
 
+export const addAsyncTodos = createAsyncThunk(
+  "todos/addAsyncTodos",
+  async (payload, { rejectWithValue }) => {
+    try {
+      const response = await axios.post("http://localhost:3001/todos/", {
+        id: Date.now(),
+        title: payload.title,
+        completed: false,
+      });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue([], error);
+    }
+  }
+);
 const todoSlice = createSlice({
   name: "todos",
   initialState: {
@@ -56,6 +71,9 @@ const todoSlice = createSlice({
         todos: [],
         error: action.error.message,
       };
+    },
+    [addAsyncTodos.fulfilled]: (state, action) => {
+      state.todos.push(action.payload);
     },
   },
 });
