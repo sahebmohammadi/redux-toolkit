@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleComplete } from "../../features/todos/todoSlice";
+import { deleteTodo, toggleComplete } from "../../features/todos/todoSlice";
 
 const TodoItem = ({ id, title, completed }) => {
   const dispatch = useDispatch();
@@ -17,7 +17,12 @@ const TodoItem = ({ id, title, completed }) => {
           ></input>
           {title}
         </span>
-        <button className="btn btn-danger">Delete</button>
+        <button
+          className="btn btn-danger"
+          onClick={() => dispatch(deleteTodo({ id }))}
+        >
+          Delete
+        </button>
       </div>
     </li>
   );
