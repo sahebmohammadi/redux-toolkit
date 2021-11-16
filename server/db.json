@@ -6,9 +6,8 @@
       "completed": true
     },
     {
-      "id": 2,
-      "title": "todo 2",
-      "completed": false
+      "completed": true,
+      "id": 2
     },
     {
       "id": 3,
@@ -16,9 +15,8 @@
       "completed": false
     },
     {
-      "id": 4,
-      "title": "todo 4",
-      "completed": false
+      "completed": true,
+      "id": 4
     },
     {
       "id": 1637097735723,

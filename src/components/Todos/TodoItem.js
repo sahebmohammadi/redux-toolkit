@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteTodo, toggleComplete } from "../../features/todos/todoSlice";
+import {
+  deleteTodo,
+  toggleCompleteAsync,
+} from "../../features/todos/todoSlice";
 
 const TodoItem = ({ id, title, completed }) => {
   const dispatch = useDispatch();
@@ -13,7 +16,9 @@ const TodoItem = ({ id, title, completed }) => {
             type="checkbox"
             className="mr-3"
             checked={completed}
-            onChange={(e) => dispatch(toggleComplete({ id }))}
+            onChange={(e) =>
+              dispatch(toggleCompleteAsync({ id: id, completed: !completed }))
+            }
           ></input>
           {title}
         </span>
